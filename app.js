@@ -19,6 +19,50 @@ const copyBtn = document.getElementById('copy-btn');
 let isListening = false;
 let recognition = null;
 let mode = 'en-fi'; // en-fi or fi-en
+let isCameraActive = false;
+let cameraStream = null;
+
+// Elements
+const camBtn = document.getElementById('cam-btn');
+const cameraSection = document.getElementById('camera-section');
+const videoFeed = document.getElementById('video-feed');
+
+// Camera Logic
+async function toggleCamera() {
+    if (isCameraActive) {
+        stopCamera();
+    } else {
+        await startCamera();
+    }
+}
+
+async function startCamera() {
+    try {
+        cameraStream = await navigator.mediaDevices.getUserMedia({ 
+            video: { facingMode: 'user' }, 
+            audio: false 
+        });
+        videoFeed.srcObject = cameraStream;
+        cameraSection.hidden = false;
+        cameraSection.classList.add('active');
+        camBtn.classList.add('active');
+        isCameraActive = true;
+    } catch (err) {
+        console.error("Camera access error:", err);
+        alert("Camera access denied or unavailable.");
+    }
+}
+
+function stopCamera() {
+    if (cameraStream) {
+        cameraStream.getTracks().forEach(track => track.stop());
+    }
+    videoFeed.srcObject = null;
+    cameraSection.hidden = true;
+    cameraSection.classList.remove('active');
+    camBtn.classList.remove('active');
+    isCameraActive = false;
+}
 
 // Translation API Config (MyMemory API - Free tier)
 const TRANSLATE_API = "https://api.mymemory.translated.net/get";
@@ -163,6 +207,8 @@ copyBtn.addEventListener('click', () => {
         });
     }
 });
+
+camBtn.addEventListener('click', toggleCamera);
 
 // Initialize UI
 labelFrom.classList.add('active');
