@@ -1,5 +1,5 @@
 /**
- * Silo AI - Real-time Voice Translator
+ * Navjot AI - Real-time Voice Translator
  * Logic for Speech Recognition and Translation
  */
 
