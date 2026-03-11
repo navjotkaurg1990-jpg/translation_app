@@ -1,13 +1,13 @@
 :root {
-    --primary: #6366f1;
-    --primary-glow: rgba(99, 102, 241, 0.5);
-    --secondary: #a855f7;
-    --bg-dark: #0f172a;
-    --glass-bg: rgba(30, 41, 59, 0.7);
+    --primary: #ec4899;
+    --primary-glow: rgba(236, 72, 153, 0.5);
+    --secondary: #f472b6;
+    --bg-dark: #1e0a11;
+    --glass-bg: rgba(45, 10, 25, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
-    --text-main: #f8fafc;
-    --text-dim: #94a3b8;
-    --accent-color: #38bdf8;
+    --text-main: #fce7f3;
+    --text-dim: #f9a8d4;
+    --accent-color: #fbcfe8;
     --error: #ef4444;
     --success: #22c55e;
 }
@@ -22,8 +22,8 @@
 body {
     background-color: var(--bg-dark);
     background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(244, 114, 182, 0.15) 0px, transparent 50%);
     color: var(--text-main);
     min-height: 100vh;
     display: flex;
@@ -66,7 +66,7 @@ h1 {
 
 .accent {
     color: var(--accent-color);
-    text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    text-shadow: 0 0 20px rgba(251, 207, 232, 0.4);
 }
 
 .subtitle {
